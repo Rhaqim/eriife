@@ -48,11 +48,11 @@ const Section: React.FC<SectionProps> = ({
 		if (isInViewport) {
 			// Update background image and play music when in viewport
 			document.body.style.backgroundImage = `url(${backgroundImage})`;
-			document.body.style.backgroundAttachment = 'fixed';
+			document.body.style.backgroundAttachment = "fixed";
 			document.body.style.backdropFilter = "blur(5px) brightness(0.5)";
 			document.body.style.backgroundSize = "cover";
 			document.body.style.backgroundPosition = "center";
-            document.body.style.transition = "background-image 1s ease-in-out";
+			document.body.style.transition = "background-image 1s ease-in-out";
 
 			const audioElement = new Audio(music);
 			audioElement.play();
@@ -68,16 +68,16 @@ const Section: React.FC<SectionProps> = ({
 	return (
 		<div
 			ref={sectionRef}
-			className="section relative h-screen flex overflow-hidden w-full"
+			className="relative h-screen flex w-full snap-start scroll-smooth"
 		>
-			{/* <div className="absolute top-0 left-0 w-full h-full bg-cover bg-left filter blur-lg"></div> */}
+			<div className="absolute top-0 left-0 w-full h-full bg-cover bg-left filter blur-lg"></div>
 			<div className="flex flex-row justify-evenly items-center p-8 w-full">
 				{/* Image */}
 				<div className="w-[400px] h-[400px]">
 					<Image
 						src={backgroundImage}
 						alt="Album Cover"
-                        layout="responsive"
+						// layout="responsive"
 						width={400}
 						height={400}
 					/>
