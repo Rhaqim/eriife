@@ -16,6 +16,18 @@ export default function Home() {
 			>
 				<p className="text-4xl font-bold text-white">November</p>
 			</Section>
+			<Section
+				backgroundImage="/images/covers/come-on-home.jpg"
+				music="/music/albums/adore"
+			>
+				<p className="text-4xl font-bold text-white">Come on Home</p>
+			</Section>
+			<Section
+				backgroundImage="/images/covers/esquire.jpg"
+				music="/music/albums/adore"
+			>
+				<p className="text-4xl font-bold text-white">Esquire</p>
+			</Section>
 		</main>
 	);
 }
