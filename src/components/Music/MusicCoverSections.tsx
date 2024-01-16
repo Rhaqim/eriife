@@ -3,19 +3,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-interface SectionProps {
+interface MusicSectionProps {
 	backgroundImage: string;
 	music: string;
 	children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({
+const MusicSection: React.FC<MusicSectionProps> = ({
 	backgroundImage,
 	music,
 	children,
 }) => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 	const [isInViewport, setIsInViewport] = useState<boolean>(false);
+
+	const image = `/images/covers/${backgroundImage}`;
 
 	useEffect(() => {
 		const options = {
@@ -47,7 +49,7 @@ const Section: React.FC<SectionProps> = ({
 	useEffect(() => {
 		if (isInViewport) {
 			// Update background image and play music when in viewport
-			document.body.style.backgroundImage = `url(${backgroundImage})`;
+			document.body.style.backgroundImage = `url(${image})`;
 			document.body.style.backgroundAttachment = "fixed";
 			document.body.style.backdropFilter = "blur(5px) brightness(0.5)";
 			document.body.style.backgroundSize = "cover";
@@ -63,7 +65,7 @@ const Section: React.FC<SectionProps> = ({
 				audioElement.pause();
 			};
 		}
-	}, [isInViewport, backgroundImage, music]);
+	}, [isInViewport, image, music]);
 
 	return (
 		<div
@@ -75,7 +77,7 @@ const Section: React.FC<SectionProps> = ({
 				{/* Image */}
 				<div className="w-[400px] h-[400px]">
 					<Image
-						src={backgroundImage}
+						src={image}
 						alt="Album Cover"
 						// layout="responsive"
 						width={400}
@@ -84,10 +86,15 @@ const Section: React.FC<SectionProps> = ({
 				</div>
 
 				{/* Text Description */}
-				<div className="bg-black bg-opacity-50 p-4 rounded-lg">{children}</div>
+				<div
+					className="bg-black bg-opacity-50 p-4 rounded-xl min-w-[400px]"
+					style={{ backdropFilter: "blur(5px)" }}
+				>
+					{children}
+				</div>
 			</div>
 		</div>
 	);
 };
 
-export default Section;
+export default MusicSection;

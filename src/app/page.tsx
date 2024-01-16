@@ -1,42 +1,72 @@
-import Section from "@/components/Sections";
+import MusicCard from "@/components/Music/MusicCard";
+import MusicSection from "@/components/Music/MusicCoverSections";
 
 const sectionsData = [
 	{
-		backgroundImage: "/images/covers/adore.jpg",
+		backgroundImage: "adore.jpg",
 		music: "/music/albums/adore",
 		title: "Adore",
+		producers: "Producers: ",
+		released: "Released: ",
+		background: "Background: ",
+		link: "Link: ",
 	},
 	{
-		backgroundImage: "/images/covers/november.jpg",
+		backgroundImage: "november.jpg",
 		music: "/music/albums/november",
 		title: "November",
+		producers: "Producers: ",
+		released: "Released: ",
+		background: "Background: ",
+		link: "Link: ",
 	},
 	{
-		backgroundImage: "/images/covers/come-on-home.jpg",
+		backgroundImage: "come-on-home.jpg",
 		music: "/music/albums/come-on-home",
 		title: "Come on Home",
+		producers: "Producers: ",
+		released: "Released: ",
+		background: "Background: ",
+		link: "Link: ",
 	},
 	{
-		backgroundImage: "/images/covers/esquire.jpg",
+		backgroundImage: "esquire.jpg",
 		music: "/music/albums/esquire",
 		title: "Esquire",
+		producers: "Producers: ",
+		released: "Released: ",
+		background: "Background: ",
+		link: "Link: ",
+	},
+	{
+		backgroundImage: "dfw.jpg",
+		music: "/music/albums/esquire",
+		title: "Dear Future Wife",
+		producers: "Producers: ",
+		released: "Released: ",
+		background: "Background: ",
+		link: "Link: ",
 	},
 ];
 
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col">
-			<div className="section relative h-screen flex w-full">
-				Introduction
-			</div>
+			<div className="section relative h-screen flex w-full">Introduction</div>
 			{sectionsData.map((section, index) => (
-				<Section
+				<MusicSection
 					key={index}
 					backgroundImage={section.backgroundImage}
 					music={section.music}
 				>
-					<p className="text-4xl font-bold text-white">{section.title}</p>
-				</Section>
+					<MusicCard
+						title={section.title}
+						producers={section.producers}
+						released={section.released}
+						background={section.background}
+						link={section.link}
+					/>
+				</MusicSection>
 			))}
 		</main>
 	);
