@@ -1,3 +1,4 @@
+import Introduction from "@/components/Intro";
 import MusicCard from "@/components/Music/MusicCard";
 import MusicSection from "@/components/Music/MusicCoverSections";
 
@@ -51,8 +52,8 @@ const sectionsData = [
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col">
-			<div className="section relative h-screen flex w-full">Introduction</div>
+		<main className="flex min-h-screen flex-col scroll-smooth">
+			<Introduction />
 			{sectionsData.map((section, index) => (
 				<MusicSection
 					key={index}

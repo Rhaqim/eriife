@@ -26,7 +26,6 @@ body {
 		rgb(var(--background-start-rgb));
 }
 
-/* write the css for animate-spin-slow */
-.animate-spin-slow {
-	animation: spin 3s linear infinite;
+::-webkit-scrollbar {
+	display: none;
 }

@@ -51,9 +51,9 @@ const MusicSection: React.FC<MusicSectionProps> = ({
 			// Update background image and play music when in viewport
 			document.body.style.backgroundImage = `url(${image})`;
 			document.body.style.backgroundAttachment = "fixed";
-			document.body.style.backdropFilter = "blur(5px) brightness(0.5)";
 			document.body.style.backgroundSize = "cover";
 			document.body.style.backgroundPosition = "center";
+			document.body.style.backdropFilter = "blur(5px) brightness(0.5)";
 			document.body.style.transition = "background-image 1s ease-in-out";
 
 			const audioElement = new Audio(music);
@@ -70,7 +70,7 @@ const MusicSection: React.FC<MusicSectionProps> = ({
 	return (
 		<div
 			ref={sectionRef}
-			className="relative h-screen flex w-full snap-start scroll-smooth"
+			className="section relative h-screen flex w-full items-center justify-center scroll-smooth"
 		>
 			<div className="absolute top-0 left-0 w-full h-full bg-cover bg-left filter blur-lg"></div>
 			<div className="flex flex-row justify-evenly items-center p-8 w-full">
@@ -87,7 +87,7 @@ const MusicSection: React.FC<MusicSectionProps> = ({
 
 				{/* Text Description */}
 				<div
-					className="bg-black bg-opacity-50 p-4 rounded-xl min-w-[400px]"
+					className="bg-gray-800 bg-opacity-50 p-4 rounded-xl min-w-[400px]"
 					style={{ backdropFilter: "blur(5px)" }}
 				>
 					{children}
